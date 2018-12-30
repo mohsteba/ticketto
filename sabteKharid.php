@@ -1,3 +1,23 @@
+<?php
+session_start();
+if( isset( $_GET[ 'signout' ] ) ) {
+		unset( $_SESSION[ 'email' ] );
+        Redirect('index.php', false);
+	}
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+    exit();
+}
+
+include("functions.php");
+
+?>
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -102,64 +122,8 @@
     <div class="container pb-5">
         <div class="bg-white pr-3 pl-3"
              style="padding-top: 3%; padding-bottom: 4%; border: 1px solid #eee; border-radius: 0.5vh;">
-            <div class="row text-justify">
-                <div class="col-md-3 pr-4">
-                    <img src="imgs/filmha/sarv/main.jpg" class="img-fluid rounded img-thumbnail" style="height: 300px;">
-                </div>
-                <div class="col-md-5 ">
-                    <div class="pt-3 pr-0">
-                        <h5><strong>
-                            سرو زیر آب
-                        </strong></h5>
-                        <h6 class="pt-3">پردیس سینمایی باغ کتاب</h6>
-                        <p>سالن سه(ظرفیت 70 نفر)</p>
-                        <div class="text-secondary pt-2" style="font-size: 14px;">
-                            <p><i class="fas fa-map-marker-alt fa-icons5 pl-2" style="padding-right: 1%;"></i>
-                                نشانی: بزرگراه شهید حقانی، ورودی کتابخانه ملی، باغ کتاب تهران
-                            </p>
-                            <p><i class="fas fa-calendar fa-icons5 pl-2" style="padding-right: 0.8%;"></i>
-                                تاریخ: شنبه، ۱۳۹۷/۱۰/۰۱
-                            </p>
-                            <p><i class="fas fa-clock fa-icons5 pl-2" style="padding-right: 0.5%;"></i>
-                                ساعت: ۱۸:۱۰
-                            </p>
-                            <p><i class="fas fa-money-bill-alt fa-icons5 pl-1"></i>
-                                قیمت بلیت: رایگان
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-
-                </div>
-            </div>
-            <div class="row text-justify pt-4 pr-2">
-                <div class="col-md ">
-                    <div class="pt-3">
-                        <h6><i class="fas fa-check fa-icons5 pr-1" style="color: rgb(46, 139, 175);"></i>
-                            <strong style="color: rgb(31,70,113);">
-                                مشخصات شما
-                            </strong>
-                        </h6>
-                        <div style="padding-left: 13%; padding-right: 9%;">
-                            <ul class="list-group">
-                                <li class="list-group-item bg-light">نام:
-                                    <span style="color:rgb(46, 139, 175); padding-right: 27%;">نام کاربر</span>
-                                </li>
-                                <li class="list-group-item">نام خانوادگی:
-                                    <span style="color:rgb(46, 139, 175); padding-right: 19%;">نام خانوادگی کاربر</span>
-                                </li>
-                                <li class="list-group-item bg-light">ایمیل:
-                                    <span style="color:rgb(46, 139, 175); padding-right: 25%;">user@email.com</span>
-                                </li>
-                                <li class="list-group-item ">تعداد بلیت:
-                                    <span style="color:rgb(46, 139, 175); padding-right: 20%;">2</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             <!--  here-->
+             <?php getsabtekharid(); ?>
             <div class="row text-justify pt-5 pr-2">
                 <div class="col-md ">
                     <div class="pt-3">
@@ -285,7 +249,7 @@
 
 
 <script>
-   
+
     function activateFunction() {
         var element = document.getElementById("buy");
         element.classList.toggle("disabled2");

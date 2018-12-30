@@ -1,7 +1,119 @@
 <?php
 
 
+function getsabtekharid(){
 
+  if (isset($_GET['infirmation_id'])){
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "acount";
+
+// Create connection
+$conn = new mysqli($servername,$username, $password,$dbname);
+$conn->set_charset("utf8");
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$time_info;
+$cinemaidtable= $_GET['cinema_id'];
+$sql = "SELECT * FROM cinema where cinemaid ='$cinemaidtable'";
+$result = $conn->query($sql);
+$info= $_GET['infirmation_id'];
+$sql2 = "SELECT * FROM wendsday where id ='$info'";
+$result2 = $conn->query($sql2);
+$conn->query("SET CHARSET SET 'utf8'");
+
+while ($information = mysqli_fetch_array($result2)) {
+    $movie_name_id = $information['movie'];
+    $movie_sal = $information['salon'];
+    $sql3 = "SELECT * FROM movies where nameid ='$movie_name_id'";
+    $result3 = $conn->query($sql3);
+    $conn->query("SET CHARSET SET 'utf8'");
+    while ($res=mysqli_fetch_array($result3)) {
+      $movie_name=$res['name'];
+      $movie_img=$res['image1'];
+
+    }
+    $time_info = $information['saat'];
+    $price_info = $information['price'];
+}
+}
+$user_email = $_SESSION['email'];
+$sql5= "SELECT * FROM users where email ='$user_email'";
+$result5 = $conn->query($sql5);
+$conn->query("SET CHARSET SET 'utf8'");
+while ($resu=mysqli_fetch_array($result5)) {
+  $user_name = $resu['name'];
+  $user_familyname = $resu['familyname'];
+}
+
+while($cinema=mysqli_fetch_array($result))
+{
+   $cinema_id = $cinema['cinemaid'];
+   $cinema_name = $cinema['name'];
+   $cinema_address = $cinema['address'];
+      echo"<div class='row text-justify'>
+      		<div class='col-md-3 pr-4'>
+      				<img src='$movie_img' class='img-fluid rounded img-thumbnail' style='height: 300px;'>
+      		</div>
+      		<div class='col-md-5 '>
+      				<div class='pt-3 pr-0'>
+      						<h5><strong>
+      							$movie_name
+      						</strong></h5>
+      						<h6 class='pt-3'>$cinema_name</h6>
+      						<p>سالن شماره $movie_sal </p>
+      						<div class='text-secondary pt-2' style='font-size: 14px;'>
+      								<p><i class='fas fa-map-marker-alt fa-icons5 pl-2' style='padding-right: 1%;'></i>
+$cinema_address      								</p>
+      								<p><i class='fas fa-calendar fa-icons5 pl-2' style='padding-right: 0.8%;'></i>
+تاریخ :‌چهارشنبه ۱۲ دی ماه      								</p>
+      								<p><i class='fas fa-clock fa-icons5 pl-2' style='padding-right: 0.5%;'></i>
+ساعت :‌$time_info
+      								</p>
+      								<p><i class='fas fa-money-bill-alt fa-icons5 pl-1'></i>
+قیمت بلیت $price_info
+      								</p>
+      						</div>
+      				</div>
+      		</div>
+      		<div class='col-md-4'>
+
+      		</div>
+      </div>
+      <div class='row text-justify pt-4 pr-2'>
+      		<div class='col-md '>
+      				<div class='pt-3'>
+      						<h6><i class='fas fa-check fa-icons5 pr-1' style='color: rgb(46, 139, 175);'></i>
+      								<strong style='color: rgb(31,70,113);'>
+      										مشخصات شما
+      								</strong>
+      						</h6>
+      						<div style='padding-left: 13%; padding-right: 9%;'>
+      								<ul class='list-group'>
+      										<li class='list-group-item bg-light'>نام:
+      												<span style='color:rgb(46, 139, 175); padding-right: 27%;'>$user_name</span>
+      										</li>
+      										<li class='list-group-item'>نام خانوادگی:
+      												<span style='color:rgb(46, 139, 175); padding-right: 19%;'>$user_familyname</span>
+      										</li>
+      										<li class='list-group-item bg-light'>ایمیل:
+      												<span style='color:rgb(46, 139, 175); padding-right: 25%;'>$user_email</span>
+      										</li>
+      									
+      								</ul>
+      						</div>
+      				</div>
+      		</div>
+      </div>";
+  }
+
+
+
+}
 function getinfoforush(){
 $servername = "localhost";
 $username = "root";

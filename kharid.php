@@ -158,11 +158,11 @@ include("functions.php");
 
                          <div id="buyTicket" class="tabcontent pt-4 pb-5">
                             <h6><i class="fas fa-user fa-icons5 pb-4 pt-3 pr-1 pl-1"></i>
-                                قبلا با کاربری خود وارد شده اید
+                              آیا تمایل به خرید بلیت دارید ؟‌
                             </h6>
                             <form>
                                 <div class="pb-3 form-inline pr-2" style="padding-left: 30%; font-size: 15px;">
-                                    <select class="pl-4 custom-select" style="margin-left: 2%;">
+                                    <!-- <select class="pl-4 custom-select" style="margin-left: 2%;">
                                         <option selected>تعداد بلیت</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -170,10 +170,10 @@ include("functions.php");
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
-                                    </select>
+                                    </select> -->
                                     <a class="btn blue-btn text-white first-item pt-2 pb-2 pr-4 pl-4"
-                                       href="sabteKharid.php"
-                                       role="button">ادامه</a>
+                                       href="sabteKharid.php?infirmation_id=<?=$_GET['info_id']?>&cinema_id=<?=$_GET['cinema_id']?>"
+                                       role="button">خرید بلیت</a>
                                 </div>
                             </form>
                         </div>
