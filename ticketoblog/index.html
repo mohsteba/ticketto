@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/style_1.css" rel="stylesheet" type="text/css"/>
+    <link href="css/animate.css" rel="stylesheet" type="text/css"/>
+    <title>تیکتو بلاگ</title>
+    <link rel="icon" href="imgs/logo.png">
+
+    <link href="css/media_query.css" rel="stylesheet" type="text/css"/>
+    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+    <link href="css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
+
+
+    <script src="js/modernizr-3.5.0.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top w-100" style="background-color: #dadada">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.php"><img src="imgs/logo.png" alt="" style="width: 60px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active ml-2">
+                    <a class="nav-link" href="../index.php"><span class="blue-txt">صفحه اصلی </span><span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="../teatr.php"> <span class="blue-txt">تئاترها</span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="../film.php"> <span class="blue-txt">فیلم‌ها </span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="../cinema.php"> <span class="blue-txt">سینما‌ها</span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="../salesTable/salesTable/salestable.php"><span
+                            class="blue-txt">جدول فروش </span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="index.html"> <span class="blue-txt">اخبار سینما</span></a>
+                </li>
+                <li class="nav-item active mr-2 ml-2 ">
+                    <a class="nav-link" href="../contact/index.php"><span class="blue-txt">تماس با ما </span></a>
+                </li>
+            </ul>
+
+<!--
+            <?php if (!isset($_SESSION["email"])) : ?>
+            <div class="btn-group mr-2">
+                <a href="../ozviat.php" role="button" class="text-white btn rounded-right blue-btn"
+                   style="border-radius:0;">عضویت
+                </a>
+                <a href="../vorud.php" role="button" class="btn rounded-left pt-1 pb-1 purple-btn"
+                   style="border-radius:0;">ورود
+                </a>
+            </div>
+-->
+
+            <!--       HERE      -->
+<!--
+            <?php else: ?>
+            <div class="btn-group mr-2">
+                <ul class="dropdown-menu" style="background-color: #eaeaea;" role="menu">
+                    <li class="pb-2"><a href="../profile.php"
+                                        style="padding-left: 20%; text-decoration: none; color:rgb(46, 139, 175);">
+                        <i class="fas fa-icons1 fa-user-circle pt-2"></i>
+                        پروفایل کاربری </a></li>
+                    <li class="pb-2"><a href="?signout"
+                                        style="padding-left: 57%; text-decoration: none; color:rgb(46, 139, 175);">
+                        <i class="fas fa-icons1 fa-sign-out-alt pt-2"></i>
+                        خروج</a></li>
+                </ul>
+                <button type="button" class="text-white btn rounded-right disabled"
+                        style="background-color: rgb(31,70,113); border-radius:0;"><?=$_SESSION['email']?>
+                </button>
+                <button type="button" class="btn dropdown-toggle rounded-left text-white pt-2 pb-1"
+                        data-toggle="dropdown"
+                        style="background-color: rgb(37,84,136); border-radius:0;">
+                    <span class="caret"></span>
+                </button>
+            </div>
+            <?php endif; ?>
+-->
+        </div>
+    </div>
+</nav>
+<div class="w-100" style="padding-top: 7%; background-color: #f6f6f6;">
+    <div class="container-fluid pb-4">
+        <div class="headline" style="color: rgb(43,130,164); width: 1110px;margin: auto;text-align: center; font-size:28px; font-weight: bold;">
+            تیکتو بلاگ
+        </div>
+        <div class="container animate-box">
+            <div>
+                <div id="irannews" class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">اخبار سینمای ایران</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" id="slider2">
+                    <div class="thumbnail"><img src="images/21.jpg" alt=""/></div>
+                    <div>
+                        <a href="1blog.html" class="d-block fh5co_small_post_heading"><span class=""> آخرین خبرها از حال و روز «حسین محب
+                                اهری»</span></a>
+                        <div class="c_g"><i class="fa fa-clock-o"></i> ۲۱آذر</div>
+                    </div>
+                </div>
+                <div class="col-md-4" id="slider2">
+                    <div class="thumbnail"><img src="images/sarv.jpg" style="width:340px; alt="" /></div>
+                    <div>
+                        <a href="2blog.html" class="d-block fh5co_small_post_heading"><span class="">نمایش فیلم «سرو زیر آب» در باغ‌ موزه دفاع مقدس</span></a>
+                        <div class="c_g"><i class="fa fa-clock-o"></i> ۲۲آذر</div>
+                    </div>
+                </div>
+                <div class="col-md-4" id="slider2">
+                    <div class="thumbnail"><img src="images/davari.jpg" style="width:340px;" alt=""/></div>
+                    <div>
+                        <a href="3blog.html"
+                           class="d-block fh5co_small_post_heading"><span class="">۱۳۸ اثر در مسابقه تبلیغات سینمای ایران ثبت شد</span></a>
+                        <div class="c_g"><i class="fa fa-clock-o"></i> ۲۱آذر</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid pb-4 pt-5">
+            <div class="container animate-box">
+                <div>
+                    <div id="irannews" class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">اخبار سینمای جهان
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" id="slider2">
+                        <div class="thumbnail"><img src="images/trump.jpg" alt=""/></div>
+                        <div>
+                            <a href="4blog.html" class="d-block fh5co_small_post_heading"><span class="">یک مستند سیاسی در دفاع از ترامپ، بدترین فیلم سال ۲۰۱۸ شد</span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> ۲آذر</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="slider2">
+                        <div class="thumbnail"><img src="images/ss.jpg" alt=""/></div>
+                        <div>
+                            <a href="5blog.html"
+                               class="d-block fh5co_small_post_heading"><span
+                                    class="">قیمت بلیت سینما در شهرهای مهم جهان</span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> ۱۸آذر</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="slider2">
+                        <div class="thumbnail"><img src="images/jonny.jpg" alt=""/></div>
+                        <div>
+                            <a href="6blog.html"
+                               class="d-block fh5co_small_post_heading"><span class=""> جدایی جانی دپ از «دزدان دریایی کارائیب» تایید شد</span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> ۲آذر</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="container-fluid pb-4 pt-5">
+            <div class="container animate-box">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">اخبار سینمای جهان</div>
+                </div>
+                <div class="owl-carousel owl-theme" id="slider2">
+                    <div class="item px-2">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="images/39-324x235.jpg" alt=""/></div>
+                            <div>
+                                <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                                <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item px-2">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="images/joe-gardner-75333.jpg" alt=""/></div>
+                            <div>
+                                <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                                <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item px-2">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="images/ryan-moreno-98837.jpg" alt=""/></div>
+                            <div>
+                                <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                                <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="container-fluid pb-4 pt-4 paddding">
+        <div class="container paddding">
+            <div class="row mx-0">
+                <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                    <div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">تازه ترین اخبار</div>
+                    </div>
+                    <div class="row pb-4">
+                        <div class="col-md-5">
+                            <div class="fh5co_hover_news_img">
+                                <div class="fh5co_news_img"><img src="images/1111.jpg" alt=""/></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 animate-box">
+                            <a href="1newblog.html"
+                               class="fh5co_magna py-2">
+                                رامبد جوان با انتشار یک دیدگاه در صفحه اینستاگرامش به شایعه طلاق از همسرش پایان داد</a>
+                            <a class="fh5co_mini_time py-3"> امیر سلیمانی - ۲ آذر</a>
+                            <div class="fh5co_consectetur"> کامنت جالب رامبد جوان پس از انتشار خبر جدایی رامبد جوان و
+                                نگار
+                                جواهریان !
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pb-4">
+                        <div class="col-md-5">
+                            <div class="fh5co_hover_news_img">
+                                <div class="fh5co_news_img"><img src="images/aa.jpg" alt=""/></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <a href="2newblog.html"
+                               class="fh5co_magna py-2">
+                                سرانجام بازیگران زن و مرد اولین فیلم سینمای ایران و سختی هایی روح انگیز سامی نژاد بعد
+                                از این
+                                فیلم!
+                            </a> <a class="fh5co_mini_time py-3"> مهسا محمدی - ۲۲ آذر</a>
+                            <div class="fh5co_consectetur">آگاهی از سرنوشت افرادی که در نخستین فیلم ایرانی جلوی دوربین
+                                رفتند
+                                جالب توجه است. اکثر علاقه‌مندان سینما می‌دانند دختر لر نخستین فیلم سینمای ایران است اما
+                                بیشترشان از سرنوشت بازیگران آن اطلاعی ندارند.
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row pb-4">
+                        <div class="col-md-5">
+                            <div class="fh5co_hover_news_img">
+                                <div class="fh5co_news_img">
+                                    <img src="images/133.jpg" alt=""/>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <a href="3newblog.html" class="fh5co_magna py-2">
+                                واکنش به انتشار نسخه غیرقانونی فیلم اصغر فرهادی
+                            </a> <a
+                                class="fh5co_mini_time py-3"> مریم هنرور - ۲۴ آذر</a>
+                            <div class="fh5co_consectetur"> روابط عمومی فیلم «همه می‌دانند» ساخته اصغر فرهادی در پی
+                                انتشار
+                                غیرقانونی نسخه‌ای از این فیلم در فضای مجازی، توضیحاتی ارائه داد.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pb-4">
+                        <div class="col-md-5">
+                            <div class="fh5co_hover_news_img">
+                                <div class="fh5co_news_img"><img src="images/132.jpg" alt=""/></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <a href="4newblog.html"
+                               class="fh5co_magna py-2">
+                                افتتاحیه نمایش برف روی شیروانی داغ با حضور چهره های مشهور| از مهراوه شریفی نیا تا پرستو
+                                صالحی!
+                            </a> <a class="fh5co_mini_time py-3"> پریا ساسانی - ۲۳ آذر</a>
+                            <div class="fh5co_consectetur"> در بخش خارج از مسابقه دوازدهمین دوره جشنواره بین‌المللی
+                                فیلم
+                                مستند ایران «سینماحقیقت»، ۱۴ فیلم به نمایش گذاشته می‌شوند.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                    <div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">پربازدید ترین اخبار</div>
+                    </div>
+
+                    <!-- <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">پربازدید ترین اخبار</div>
+                </div> -->
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="images/21.jpg" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"><a href="1blog.html"> آخرین خبرها از حال و روز «حسین
+                                محب
+                                اهری»</div>
+                            </a>
+                            <div class="most_fh5co_treding_font_123"> ۲۲ آذر</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="images/ss.jpg" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"><a href="5blog.html"> قیمت بلیت سینما در شهرهای مهم
+                                جهان
+                            </div>
+                            </a>
+                            <div class="most_fh5co_treding_font_123"> ۳ دی</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="images/11111.jpg" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"><a href="22blog.html"> مجری جنجالی «من وشما» مجبور به
+                                عذرخواهی شد</div>
+                            </a>
+                            <div class="most_fh5co_treding_font_123"> ۱آذر</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center"><img src="images/asghar.jpg" alt="img"
+                                                                  class="fh5co_most_trading"/></div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"><a href="44blog.html">فیلم فرهادی در بین ۱۰ پرفروش
+                                اسپانیا
+                            </div>
+                            </a>
+                            <div class="most_fh5co_treding_font_123"> ۲۲ آذر</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100 bg-white" id="contact">
+    <div class="container-fluid">
+
+        <div class="row pb-2 pt-4">
+            <div class="col-md-6 text-justify " style="font-size: 14px; padding-left: 12%; padding-top: 2.5%;">
+                <ul class="footer">
+                    <li class="footeritem pl-4 pr-4"><a href="index.php">تماس با ما</a></li>
+                    <li class="footeritem pl-4 pr-4"><a href="../rahnama.php">راهنمای استفاده از تیکتو</a></li>
+                    <li class="footeritem pl-4 pr-4"><a href="../ayande.php">فیلم های آینده</a></li>
+                    <li class="footeritem pl-4 "><a href="../darbareMa.php">درباره تیکتو</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center " style="padding-right: 39%;">
+
+                <a href="../index.php"><img src="imgs/logo.png" class="img-fluid" alt=""
+                                            style="width: 100px;"></a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4">
+    <div class="row justify-content-center text-center pt-3 pb-2">
+        <p>کلیه حقوق مادی و معنوی این وبسایت محفوظ و مربوط به تیکتو می باشد.</p>
+    </div>
+
+    <div class="row text-center justify-content-center pl-5">
+        <ul style="list-style: none;">
+            <li class="footer-icon d-inline-block mr-1 ml-1" style="background-color: #3e5b98;">
+                <a href="https://www.facebook.com/login/" target="_blank"><i
+                        class="fa fa-facebook fa-icons2"
+                        data-toggle="tooltip"
+                        title="Contact us via Facebook"></i></a>
+            </li>
+            <li class="footer-icon d-inline-block mr-1 ml-1 " style="background-color: #4da7de;">
+                <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-icons2"
+                                                                  data-toggle="tooltip"
+                                                                  title="Contact us via Twitter."></i></a>
+            </li>
+            <li class="footer-icon d-inline-block mr-1 ml-1 " style="background-color: #6d34ac;">
+                <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram fa-icons2"
+                                                                              data-toggle="tooltip"
+                                                                              title="Contact us via Instagram."></i></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <p>
+            <a href="mailto:ticketto@kntu.ac.ir" class="vorudlink"
+               style="text-decoration: none;">ticketto@kntu.ac.ir</a>
+            <br>
+            <a href="tel:989126977637+" class="vorudlink" style="text-decoration: none;">989126977637+</a>
+
+        </p>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+html,body{
+    width: 100%;
+    direction: rtl;
+    font-family: shabnam;
+    background-color: rgb(27, 62, 101);
+    overflow-x: hidden;
+}
+@font-face{
+    font-family:shabnam;
+    src:url(../font/Shabnam.woff);
+}
+.form1{
+    background-color: rgb(229, 229, 229);
+    border-radius: 1.7vh;
+}
+.blue-btn{
+    background-color:rgb(46, 139, 175);
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+.blue-btn:hover{
+    background-color:rgb(31,70,113);
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+.fa-icons4{
+    color:rgb(46, 139, 175);
+    font-size: 1.3em;
+}
+
+.fa-icons3{
+    color: #1b3e65;
+    font-size: 1.3em;
+}
+.fa-icons3:hover{
+    color:rgb(46, 139, 175) ;
+}
+.vorudlink{
+    color: rgb(46, 139, 175);
+}
+.vorudlink:hover{
+    color: #1b3e65;
+}
+.gray{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+.footer-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+.footer-icon:hover{
+    -webkit-filter: saturate(6);
+    filter: saturate(6);
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+.zoom{
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+.zoom:hover{
+    transform: scale(0.9);
+    transition:  all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+}
+/*.invalid {*/
+    /*color: #262626;*/
+/*}*/
+
+/*.invalid:before {*/
+    /*font-size: 11px;*/
+    /*color: rgba(220, 58, 48, 0.71);*/
+    /*float: right;*/
+    /*content: "رمز ورود باید شامل حداقل 6 کاراکتر باشد.";*/
+/*}*/
+::-webkit-input-placeholder {
+    font-size: 14px;
+    /*color: #fa57e5;*/
+}
+:-moz-placeholder { /* older Firefox*/
+    font-size:14px;
+    /*color: #fa57e5;*/
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-size: 14px;
+    /*color: #fa57e5;*/
+}
+:-ms-input-placeholder {
+    font-size: 14px;
+    /*color: #fa57e5;*/
+}
+
+#snackbar1 {
+    visibility: hidden;
+    min-width: 250px;
+    /*margin-right: 400px;*/
+    background-color: rgba(208, 208, 208, 0.9);
+    color: #141b39;
+    text-align: center;
+    border-radius: 3px;
+    padding: 12px 4px 12px 4px;
+    position: fixed;
+    z-index: 1;
+    right: 41.5%;
+    bottom: 100px;
+    font-size: 15px;
+}
+
+#snackbar1.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.7s, fadeout 0.5s 2.5s;
+    animation: fadein 0.7s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 100px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 100px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 100px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 100px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+.contact
+card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*max-width: 200px;*/
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    color: #7c7c7c;
+    font-size: 14px;
+}
+ .emailbtn{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    background-color: #152f4b;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+.contact-icon{
+    text-decoration: none;
+    font-size: 19px;
+    color: #295d95;
+}
+
+.emailbtn:hover{
+    opacity: 0.9;
+    color: #ffffff;
+}
+.contact-icon:hover {
+    opacity: 0.7;
+}
