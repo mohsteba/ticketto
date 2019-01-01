@@ -1,6 +1,17 @@
 <?php
 
-
+function sendemail($movie_name , $movie_time){
+  $user_ticket_code = rand(100,2000);
+  $headers = "From: webmaster@example.com" . "\r\n" .
+  $msg = "کاربر گرامی سلام
+  این ایمیل حاوی اطلاعات بلیت خریداری شده شما میباشد
+  نام فیلم $movie_name
+  زمان پخش $movie_time
+  کد معرفی شما :‌ $user_ticket_code";
+  $user_email = "moj.astroboy@gmail.com";
+  $msg = wordwrap($msg,70);
+  mail("$user_email","بلیت سایت تیکتو",$msg,$headers);
+}
 function getsabtekharid(){
 
   if (isset($_GET['infirmation_id'])){
@@ -103,7 +114,7 @@ $cinema_address      								</p>
       										<li class='list-group-item bg-light'>ایمیل:
       												<span style='color:rgb(46, 139, 175); padding-right: 25%;'>$user_email</span>
       										</li>
-      									
+
       								</ul>
       						</div>
       				</div>

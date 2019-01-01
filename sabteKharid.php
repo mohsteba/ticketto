@@ -170,14 +170,21 @@ include("functions.php");
                                     </div>
                                 </div>
                                <a class="btn bg-secondary text-white first-item ml-2 pt-2 pb-2 pr-4 pl-4"
-                                   href="index.html" style="margin-right: 7%;"
+                                   href="index.php" style="margin-right: 7%;"
                                    role="button">انصراف</a>
                                 <button type="button" id="buy"
                                         class="btn blue-btn pl-4 pr-4 pt-2 pb-2 text-white disabled2"
                                         onclick="sendCodeFunction()">
                                     خرید
                                 </button>
-                                <div id="codeSnackbar">کد پیگیری به ایمیل شما ارسال شد.</div>
+                                <?php
+                              sendemail("salam","salam");
+
+
+
+                                ?>
+                                <div id="codeSnackbar">
+                                  کد پیگیری به ایمیل شما ارسال شد.</div>
 
 
                             </form>
