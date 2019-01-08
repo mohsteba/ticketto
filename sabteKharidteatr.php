@@ -169,10 +169,11 @@ include("functions.php");
                                         </label>
                                     </div>
                                 </div>
+                                <?php $movie_or_tratr ='0'; ?>
                                <a class="btn bg-secondary text-white first-item ml-2 pt-2 pb-2 pr-4 pl-4"
                                    href="index.php" style="margin-right: 7%;"
                                    role="button">انصراف</a>
-                                <a href="kharideNahaii.php?infirmation_id=<?=$_GET['infirmation_id']?>&cinema_id=<?=$_GET['cinema_id']?>"
+                                <a href="kharideNahaii.php?infirmation_id=<?=$_GET['infirmation_id']?>&cinema_id=<?=$_GET['cinema_id']?>&movie_teatr=<?=$movie_or_tratr?>"
                                 <button type="button" id="buy"
                                         class="btn blue-btn pl-4 pr-4 pt-2 pb-2 text-white disabled2"
                                         onclick="sendCodeFunction()">
