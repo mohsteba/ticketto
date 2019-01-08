@@ -160,17 +160,46 @@ function Redirect($url, $permanent = false)
                         <span style="color: rgb(46,139,175);"><strong>نام کاربری شما:</strong></span>
                         <?=$_SESSION['email']?>
                     </p>
-                    <form class="needs-validation" name="myForm" onsubmit="return validateForm();" novalidate>
+
+																						<?php
+																						$servername = "localhost";
+																					  $username = "root";
+																					  $password = "";
+																					  $dbname = "acount";
+
+																					  // Create connection
+																					  $conn = new mysqli($servername,$username, $password,$dbname);
+																					  $conn->set_charset("utf8");
+																					  // Check connection
+																					  if ($conn->connect_error) {
+																					  die("Connection failed: " . $conn->connect_error);
+																					  }
+																						$usr_email = $_SESSION["email"];
+																					  $sql = "SELECT * FROM users where email ='$usr_email'";
+																					  $result = $conn->query($sql);
+																						$conn->query("SET CHARSET SET 'utf8'");
+																						while ($res = mysqli_fetch_array($result)) {
+																							// code...
+																							 $user_name =$res['name'];
+																							 $user_familyname =$res['familyname'];
+																							 $user_adress =$res['adress'];
+																							 $user_phone =$res['phone'];
+
+																						}
+
+
+																						?>
+                    <form method="post" action="validation.php" class="needs-validation" name="myForm" onsubmit="return validateForm();" novalidate>
                         <div class="pt-2 pb-4">
                             <label class="pr-1">نام</label>
-                            <input type="text" class="form-control" id="name" placeholder=" نام کاربر باشه" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="<?=$user_name?>" required>
                             <div class="invalid-feedback text-justify" id="nametext">
                                 لطفا نام خود را وارد کنید.
                             </div>
                         </div>
                         <div class="pb-4">
                             <label class="pr-1">نام خانوادگی</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="نام خانوادگی کاربر باشه"
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="<?=$user_familyname?>"
                                    required>
                             <div class="invalid-feedback text-justify">
                                 لطفا نام خانوادگی خود را وارد کنید.
@@ -178,19 +207,11 @@ function Redirect($url, $permanent = false)
                         </div>
                         <div class="pb-4">
                             <label class="pr-1">شماره همراه</label>
-                            <input type="text" class="form-control" id="phonenumber" placeholder="شماره همراه">
+                            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="<?=$user_phone?>">
                         </div>
                         <div class="pb-4">
                             <label class="pr-1">آدرس</label>
-                            <input type="text" class="form-control" id="address" placeholder="آدرس">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">آقا</label>
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio2">خانم</label>
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="<?=$user_adress?>">
                         </div>
                         <br>
                         <button type="submit" id="submitbtn" class="btn blue-btn pl-4 pr-4 pt-2 pb-2 mt-4 mb-3 text-white">
@@ -203,7 +224,7 @@ function Redirect($url, $permanent = false)
     </div>
 </div>
 
-    
+
 <div class="w-100 bg-white" id="contact">
     <div class="container-fluid">
 
@@ -217,7 +238,7 @@ function Redirect($url, $permanent = false)
                 </ul>
             </div>
             <div class="col-md-6 text-center " style="padding-right: 39%;">
-                
+
                 <a href="index.php"><img src="imgs/logo.png" class="img-fluid" alt=""
                                           style="width: 100px;"></a>
             </div>
@@ -228,7 +249,7 @@ function Redirect($url, $permanent = false)
     <div class="row justify-content-center text-center pt-3 pb-2">
         <p>کلیه حقوق مادی و معنوی این وبسایت محفوظ و مربوط به تیکتو می باشد.</p>
     </div>
-    
+
      <div class="row text-center justify-content-center pl-5">
                 <ul style="list-style: none;">
                     <li class="footer-icon d-inline-block mr-1 ml-1" style="background-color: #3e5b98;">
@@ -249,7 +270,7 @@ function Redirect($url, $permanent = false)
                     </li>
                 </ul>
             </div>
-    
+
     <div class="row justify-content-center text-center">
         <p>
             <a href="mailto:ticketto@kntu.ac.ir" class="vorudlink"

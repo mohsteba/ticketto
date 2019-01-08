@@ -156,33 +156,19 @@ function Redirect($url, $permanent = false)
                         </strong>
                     </p>
                 </div>
-                <form class="needs-validation" style="padding-left: 20%; padding-right: 20%;" name="myForm" onsubmit="return validateForm();" novalidate>
-                    
-                    
+                <form method="post" action="changpass.php" class="needs-validation" style="padding-left: 20%; padding-right: 20%;" name="myForm" onsubmit="return validateForm();" novalidate>
+
+
+                  
                     <div class="pb-3">
-                        <input type="password" class="form-control" id="pastpassword" placeholder="رمز فعلی" required>
-                        <span id="eye" class="fa fa-fw fa-eye-slash field-icon" onclick="eyeFunction()"></span>
-                        <!--<p id="length" class="invalid"></p>-->
-                        <div class="invalid-feedback text-justify" id="pastpasstext">
-                            لطفا رمز فعلی خود را وارد کنید.
-                        </div>
-                    </div>
-                    <div class="pb-3">
-                        <input type="password" class="form-control" id="password" placeholder="رمز جدید" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="رمز جدید" required>
                         <span id="eye1" class="fa fa-fw fa-eye-slash field-icon" onclick="eyeFunction1()"></span>
                         <!--<p id="length" class="invalid"></p>-->
                         <div class="invalid-feedback text-justify" id="firstpasstext">
                             لطفا رمز جدید خود را وارد کنید.
                         </div>
                     </div>
-                    <div class="pb-3">
-                        <input type="password" class="form-control" id="confirm_password"  placeholder="تکرار رمز جدید"
-                               required>
-                        <span id="eye2" class="fa fa-fw fa-eye-slash field-icon" onclick="eyeFunction2()"></span>
-                        <div class="invalid-feedback text-justify" id="passtext">
-                            لطفا رمز جدید خود را مجددا وارد کنید.
-                        </div>
-                    </div>
+
                     <button type="submit" id="submitbtn" class="btn blue-btn pl-4 pr-4 pt-2 pb-2 mt-2 text-white" >
                         <strong>ثبت</strong>
                     </button>
@@ -193,7 +179,7 @@ function Redirect($url, $permanent = false)
     </div>
 </div>
 
-    
+
 <div class="w-100 bg-white" id="contact">
     <div class="container-fluid">
 
@@ -207,7 +193,7 @@ function Redirect($url, $permanent = false)
                 </ul>
             </div>
             <div class="col-md-6 text-center " style="padding-right: 39%;">
-                
+
                 <a href="index.php"><img src="imgs/logo.png" class="img-fluid" alt=""
                                           style="width: 100px;"></a>
             </div>
@@ -218,7 +204,7 @@ function Redirect($url, $permanent = false)
     <div class="row justify-content-center text-center pt-3 pb-2">
         <p>کلیه حقوق مادی و معنوی این وبسایت محفوظ و مربوط به تیکتو می باشد.</p>
     </div>
-    
+
      <div class="row text-center justify-content-center pl-5">
                 <ul style="list-style: none;">
                     <li class="footer-icon d-inline-block mr-1 ml-1" style="background-color: #3e5b98;">
@@ -239,7 +225,7 @@ function Redirect($url, $permanent = false)
                     </li>
                 </ul>
             </div>
-    
+
     <div class="row justify-content-center text-center">
         <p>
             <a href="mailto:ticketto@kntu.ac.ir" class="vorudlink"
@@ -254,7 +240,7 @@ function Redirect($url, $permanent = false)
 
 
 <script>
-    
+
     function eyeFunction() {
             var x = document.getElementById("pastpassword");
             var y = document.getElementById("eye");
