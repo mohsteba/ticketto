@@ -161,7 +161,7 @@ function Redirect($url, $permanent = false)
                 <table class="table table-striped table-bordered table-hover text-center">
                     <thead style="background-color: rgb(43,131,165);" class="text-white">
                     <tr>
-                        <th>تاریخ</th>
+
                         <th>برنامه</th>
                         <th>محل</th>
                         <th>سانس</th>
@@ -169,27 +169,110 @@ function Redirect($url, $permanent = false)
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>97/10/07</td>
-                        <td>گرگ بازی</td>
-                        <td>پردیس سینما آزادی</td>
-                        <td>21:30</td>
-                        <td>100013</td>
-                    </tr>
-                    <tr>
-                        <td>97/09/29</td>
-                        <td>سوفی و دیوانه</td>
-                        <td>پردیس سینما آزادی</td>
-                        <td>17:00</td>
-                        <td>100014</td>
-                    </tr>
-                    <tr>
-                        <td>97/09/27</td>
-                        <td>جاده قدیم</td>
-                        <td>پردیس سینما آزادی</td>
-                        <td>14:30</td>
-                        <td>100015</td>
-                    </tr>
+											<?php
+											$servername = "localhost";
+										  $username = "root";
+										  $password = "";
+										  $dbname = "acount";
+
+										  // Create connection
+										  $conn = new mysqli($servername,$username, $password,$dbname);
+										  $conn->set_charset("utf8");
+										  // Check connection
+										  if ($conn->connect_error) {
+										  die("Connection failed: " . $conn->connect_error);
+										  }
+											$usr_email = $_SESSION["email"];
+										  $sql = "SELECT * FROM user_blit_info where user_email ='$usr_email'";
+										  $result = $conn->query($sql);
+											$conn->query("SET CHARSET SET 'utf8'");
+											while ($res = mysqli_fetch_array($result)) {
+													$id_info = $res['info_id'];
+													$peygiri = $res['peygiri'];
+												$sql2 = "SELECT * FROM wendsday where id ='$id_info'";
+												 $result2 = $conn->query($sql2);
+												 $conn->query("SET CHARSET SET 'utf8'");
+												 while ($res2 =mysqli_fetch_array($result2) ) {
+												 	// code...
+														if ($res['teatr_or_movie']==1){
+													$saat = $res2['saat'];
+													$salon = $res2['salon'];
+													$movie_id = $res2['movie'];
+													$cinema_id = $res2['cinema'];
+													$sql3 = "SELECT * FROM cinema where cinemaid ='$cinema_id'";
+													 $result3 = $conn->query($sql3);
+													 $conn->query("SET CHARSET SET 'utf8'");
+													 while ($res3 =mysqli_fetch_array($result3)) {
+														 $cinema_name = $res3['name'];
+														 $sql4 = "SELECT * FROM movies where nameid ='$movie_id'";
+															$result4 = $conn->query($sql4);
+															$conn->query("SET CHARSET SET 'utf8'");
+															while ($res4 =mysqli_fetch_array($result4)) {
+																// code...
+																$movie_name  = $res4['name'];
+																echo "
+	 														 			<tr>
+	  	 																<td>$movie_name</td>
+	  	 																<td>$cinema_name</td>
+	  	 																<td>$saat</td>
+	  	 																<td>$peygiri</td>
+	  	 														</tr>";
+															}
+
+													 }
+
+												 }
+											 }
+
+											}
+											$sql5 = "SELECT * FROM user_blit_info where user_email ='$usr_email'";
+											$result5 = $conn->query($sql5);
+											$conn->query("SET CHARSET SET 'utf8'");
+											while ($res5 = mysqli_fetch_array($result5)) {
+													$id_info = $res5['info_id'];
+													$peygiri = $res5['peygiri'];
+												$sql6 = "SELECT * FROM teatrwendsday where id ='$id_info'";
+												 $result6 = $conn->query($sql6);
+												 $conn->query("SET CHARSET SET 'utf8'");
+
+												 while ($res6 =mysqli_fetch_array($result6) ) {
+													// code...
+													if ($res5['teatr_or_movie']==0){
+													$saat = $res6['saat'];
+													$salon = $res6['salon'];
+													$teatr_id = $res6['id'];
+													$cinema_id = $res6['cinema'];
+													$sql7 = "SELECT * FROM cinema where cinemaid ='$cinema_id'";
+													 $result7 = $conn->query($sql7);
+													 $conn->query("SET CHARSET SET 'utf8'");
+													 while ($res7 =mysqli_fetch_array($result7)) {
+														 $cinema_name = $res7['name'];
+														 $sql8 = "SELECT * FROM teatr where teatrid ='$teatr_id'";
+															$result8 = $conn->query($sql8);
+															$conn->query("SET CHARSET SET 'utf8'");
+															while ($res8 =mysqli_fetch_array($result8)){
+																// code...
+																$teatr_name  = $res8['name'];
+																echo "
+																		  <tr>
+																			<td>$teatr_name</td>
+																			<td>$cinema_name</td>
+																			<td>$saat</td>
+																			<td>$peygiri</td>
+																	</tr>";
+															}
+
+													 }
+
+												 }
+											 }
+
+											}
+
+
+
+											?>
+
                     </tbody>
                 </table>
 
@@ -198,7 +281,7 @@ function Redirect($url, $permanent = false)
     </div>
 </div>
 
-    
+
 <div class="w-100 bg-white" id="contact">
     <div class="container-fluid">
 
@@ -212,7 +295,7 @@ function Redirect($url, $permanent = false)
                 </ul>
             </div>
             <div class="col-md-6 text-center " style="padding-right: 39%;">
-                
+
                 <a href="index.php"><img src="imgs/logo.png" class="img-fluid" alt=""
                                           style="width: 100px;"></a>
             </div>
@@ -223,7 +306,7 @@ function Redirect($url, $permanent = false)
     <div class="row justify-content-center text-center pt-3 pb-2">
         <p>کلیه حقوق مادی و معنوی این وبسایت محفوظ و مربوط به تیکتو می باشد.</p>
     </div>
-    
+
      <div class="row text-center justify-content-center pl-5">
                 <ul style="list-style: none;">
                     <li class="footer-icon d-inline-block mr-1 ml-1" style="background-color: #3e5b98;">
@@ -244,7 +327,7 @@ function Redirect($url, $permanent = false)
                     </li>
                 </ul>
             </div>
-    
+
     <div class="row justify-content-center text-center">
         <p>
             <a href="mailto:ticketto@kntu.ac.ir" class="vorudlink"
