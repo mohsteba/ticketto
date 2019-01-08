@@ -17,7 +17,7 @@ function Redirect($url, $permanent = false)
 
 <!doctype html>
 <html lang="en">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -110,7 +110,7 @@ function Redirect($url, $permanent = false)
         </div>
     </div>
 </nav>
-    
+
 <!-- -->
  <?php if(isset($_GET['teatrss_id'])) {
 
@@ -123,13 +123,32 @@ $dbname = "acount";
 $conn = new mysqli($servername,$username, $password,$dbname);
 $conn->set_charset("utf8");
 // Check connection
-if ($conn->connect_error) { 
+if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 $this_id=$_GET['teatrss_id'];
 $sql = "SELECT * FROM teatr where teatrid = '$this_id'";
 $result = $conn->query($sql);
 $conn->query("SET CHARSET SET 'utf8'");
+$sql2 = "SELECT * FROM teatrwendsday where teatr = '$this_id'";
+$result2 = $conn->query($sql2);
+$conn->query("SET CHARSET SET 'utf8'");
+while ($res = mysqli_fetch_array($result2)) {
+	$cinemid = $res['cinema'];
+	$saat_ekran = $res['saat'];
+	$id_information = $res['id'];
+	$salon_name = $res['salon'];
+	$fi_namme = $res['fi'];
+
+}
+$sql3 = "SELECT * FROM cinema where cinemaid = '$cinemid'";
+$result3 = $conn->query($sql3);
+$conn->query("SET CHARSET SET 'utf8'");
+while ($res2 = mysqli_fetch_array($result3)) {
+	$cinema_name = $res2['name'];
+	$id_cinema = $res2['cinemaid'];
+
+}
 while($teatrs=mysqli_fetch_array($result))
 {
 $teatrs_id=$teatrs['teatrid'];
@@ -139,7 +158,7 @@ $teatrs_image1 = $teatrs['image1'];
 $teatrs_image2 = $teatrs['image2'];
 $teatrs_productor = $teatrs['productor'];
 $teatrs_actor = $teatrs['actor'];
-$teatrs_other = $teatrs['other'];    
+$teatrs_other = $teatrs['other'];
     echo"
 <div class='w-100 bg-full' style='background-image: url($teatrs_image2);'>
     <div class='container' style='padding-top: 9%;'>
@@ -168,7 +187,7 @@ $teatrs_other = $teatrs['other'];
         </div>
     </div>
 </div>
- 
+
 
 
 <div class='w-100 content' style=' background-color: #eee;'>
@@ -187,35 +206,58 @@ $teatrs_other = $teatrs['other'];
                     <p>$teatrs_other</p>
                 </div>
             </div>
-    
+
             <div class='col-md-8' id='kharid'>
                 <h5 class='pr-2 pb-2'>
                     <strong>سالن ها و سانس ها:</strong>
                 </h5>
                 <div class='accordion ' id='accordionExample' style='font-size: 14px;'>
-                    <div class='card'>
-                        <div class='card-header' id='headingOne' style='background-color: #eee;'>
-                            <p class='collapsed mb-2 pt-2' data-toggle='collapse'
-                               data-target='#collapseOne' aria-expanded='false'
-                               aria-controls='collapseOne'><img src='imgs/bagheketab.jpg' style='width: 60px;' class='ml-4'>
-                                پردیس سینمایی باغ کتاب
-                                <button class='btn cinema-btn pl-3 pr-3 pt-1 pb-1 float-left mt-3'>مشاهده سانس ها</button></p>
-                        </div>
-                        <div id='collapseOne' class='collapse border-bottom' aria-labelledby='headingOne'
-                             data-parent='#accordionExample'>
-                            <div class='card-body pt-5 pb-5'>
-                                هم اکنون سانس های اکران در دسترس نمیباشند.
-                            </div>
-                        </div>
-                    </div>
-                 
+								<div class='card'>
+								<div class='card-header' id='headingOne' style='background-color: #eee;'>
+										<p class='collapsed mb-2 pt-2' data-toggle='collapse'
+											 data-target='#collapseOne' aria-expanded='false'
+											 aria-controls='collapseOne'><img src='imgs/bagheketab.jpg' style='width: 60px;'
+																												class='ml-4'>
+												$cinema_name
+												<button class='btn cinema-btn pl-3 pr-3 pt-1 pb-1 float-left mt-3'>مشاهده سانس ها
+												</button>
+										</p>
+								</div>
+								<div id='collapseOne' class='collapse' aria-labelledby='headingOne'
+							<div class='card-body pt-4 pb-5 pr-5'>
+							<div class='row text-justify pr-5 pb-1'>
+									<p><i class='far fa-calendar-alt fa-icons1 pl-1 pt-3'></i>
+											<strong>چهارشنبه</strong>
+											(97/08/05)
+									</p>
+							</div>
+							<div class='row pb-2 text-center' style='padding-right: 5%;'>
+							<div class='col-md-2.5 pr-1 pl-1'>
+									<div class='card border-bottom rounded pastsans-panel pl-2 pr-2 pt-1' style='width: 150px; height: 170px;'>
+											<!--<a class='card-link' href='index.php'>-->
+													<div class='card-body pt-4'>
+															<h5 class='card-title text-danger' style='font-size: 17px;'>
+																	$time_ekran</h5>
+															<p class='card-text text-dark'><strong>سالن $salon_name</strong><br>$fi_namme هزار تومان
+															</p>
+															<a href='kharidteatr.php?cinema_id=$id_cinema&info_id=$id_information' class='btn blue-btn2 mt-3 text-white pr-3 pl-3'
+																 style='font-size: 13px;'>خرید بلیت</a>
+													</div>
+										</a>
+									</div>
+							</div>
+						</div>
+							</div>
+								</div>
+								</div>
+
             </div>
         </div>
     </div>
 </div>
                        "; }}
 ?>
-    
+
 <div class="w-100 bg-white" id="contact">
     <div class="container-fluid">
 
@@ -229,7 +271,7 @@ $teatrs_other = $teatrs['other'];
                 </ul>
             </div>
             <div class="col-md-6 text-center " style="padding-right: 39%;">
-                
+
                 <a href="index.php"><img src="imgs/logo.png" class="img-fluid" alt=""
                                           style="width: 100px;"></a>
             </div>
@@ -240,7 +282,7 @@ $teatrs_other = $teatrs['other'];
     <div class="row justify-content-center text-center pt-3 pb-2">
         <p>کلیه حقوق مادی و معنوی این وبسایت محفوظ و مربوط به تیکتو می باشد.</p>
     </div>
-    
+
      <div class="row text-center justify-content-center pl-5">
                 <ul style="list-style: none;">
                     <li class="footer-icon d-inline-block mr-1 ml-1" style="background-color: #3e5b98;">
@@ -261,7 +303,7 @@ $teatrs_other = $teatrs['other'];
                     </li>
                 </ul>
             </div>
-    
+
     <div class="row justify-content-center text-center">
         <p>
             <a href="mailto:ticketto@kntu.ac.ir" class="vorudlink"
